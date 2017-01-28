@@ -6,7 +6,7 @@ Redis cache implementation for redis caching with multithread/multitask secured 
 
 Library was tested in the following environments:
 
- * Python 2.7, 3.4, 3.5
+ * Python 2.7
 
 
 Feel free to try it in yours, but it's not guaranteed it will work. Submit an issue if you think it should.
