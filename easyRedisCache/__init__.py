@@ -40,7 +40,10 @@ class easyRedisCache():
 
 	def _get(self, index):
 		data = self.r.get(self._generate_index(index))
-		return(pickle.loads(data))
+		if data != None:
+			return(pickle.loads(data))
+		else:
+			return data
 
 	def get(self, index):
 		if self.locked(index) == True:
