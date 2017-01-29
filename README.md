@@ -14,6 +14,7 @@ Feel free to try it in yours, but it's not guaranteed it will work. Submit an is
 # Installation
 
 ```
+pip install git+https://github.com/InfinityMod/sherlock
 pip install easyRedisCache
 ```
 

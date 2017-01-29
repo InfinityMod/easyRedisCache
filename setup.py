@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='easyRedisCache',
-    version='0.12',
+    version='0.13',
     author=u'David Ziegler',
     author_email='webmaster@SpreadPost.de',
     packages=find_packages(),
@@ -14,7 +14,7 @@ setup(
     zip_safe=False,
     keywords=['cache', 'lock', 'memcached', 'redis'],
     dependency_links=[
-        "git+https://github.com/InfinityMod/sherlock.git#egg=redisSherlock-0.3.0"
+        "git+ssh:git@github.com:InfinityMod/easyRedisCache.git#egg=redisSherlock-0.3.0"
     ],
     install_requires=[
         'redisSherlock',
