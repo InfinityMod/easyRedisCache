@@ -13,7 +13,7 @@ class easyRedisCache():
 		self.prefix = str(prefix)
 		self.lockprefix = 'lock'
 		self.locks = {}
-		self.r = redis.StrictRedis(host='10.8.2.1', port=6379, db=1)
+		self.r = redis.StrictRedis(host='127.0.0.1', port=6379, db=1)
 		
 		self.retry = 5
 		timeout = 5
