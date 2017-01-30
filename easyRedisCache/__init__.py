@@ -13,7 +13,7 @@ class easyRedisCache():
 		self.prefix = str(prefix)
 		self.lockprefix = 'lock'
 		self.locks = {}
-		self.r = redis.StrictRedis(host='127.0.0.1', port=6379, db=1)
+		self.r = redis.StrictRedis(host='10.8.2.1', port=6379, db=1)
 		
 		self.retry = 5
 		timeout = 5
@@ -60,6 +60,11 @@ class easyRedisCache():
 	def set(self, index, value):
 		if self.lock(index) != None:
 			self._set(index, value)
+			self.releaseLock(index)
+
+	def delete(self, index):
+		if self.lock(index) != None:
+			self.r.delete(self._generate_index(index))
 			self.releaseLock(index)
 
 	def releaseLock(self, index):
@@ -146,6 +151,8 @@ def test():
 			if block.exception == None:
 				#print "Worker 1 Set"
 				print block.val
+				if block.val == None:
+					block.val = ""
 				block.val += "foo"
 				time.sleep(1)
 
@@ -159,6 +166,7 @@ def test():
 
 
 	eC.set("key", "co")
+	eC.delete("key")
 
 	threads = []
 	for i in range(5):
